@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan App Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Page Background */
+        body {
+           background-color: #f7ede7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .topbar {
+            width: 100%;
+            background-color: #635750;
+            color: #fff;
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .topbar h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        .register-card {
+            background: #DDD0C8;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-top: 7%;
+        }
+        .btn-custom {
+            background-color: #b0a299;
+            border-color: #b0a299;
+            color: #fff;
+        }
+        .btn-custom:hover {
+            background-color: #b0a299;
+            border-color: #b0a299;
+        }
+
+        .form-control {
+            padding-right: 2.5rem;
+        }
+        .input-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            cursor: pointer;
+        }
+        .custom-link {
+            color: #635750;
+            transition: color 0.3s;
+        }
+        .custom-link:hover {
+            color: #9a8e86;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <h1>Loan App</h1>
+    </div>
+    <div class="register-card">
+        <h2 class="text-center mb-4">Create an Account</h2>
+        <form action="login.html" method="get"> <!-- Add the action attribute for navigation -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="mb-3 position-relative">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Create a password">
+                <span class="input-icon" onclick="togglePasswordVisibility('password', 'togglePasswordIcon1')">
+                    <i class="bi bi-eye-slash" id="togglePasswordIcon1"></i>
+                </span>
+            </div>
+            <div class="mb-4 position-relative">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
+                <span class="input-icon" onclick="togglePasswordVisibility('confirmPassword', 'togglePasswordIcon2')">
+                    <i class="bi bi-eye-slash" id="togglePasswordIcon2"></i>
+                </span>
+            </div>
+            <button type="submit" class="btn btn-custom w-100">Register</button>
+        </form>
+        <p class="text-center mt-3">
+            Already have an account? <a href="login.html" class="text-decoration-none custom-link">Log In</a>
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+    <script>
+        function togglePasswordVisibility(passwordFieldId, toggleIconId) {
+            const passwordInput = document.getElementById(passwordFieldId);
+            const toggleIcon = document.getElementById(toggleIconId);
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('bi-eye-slash');
+                toggleIcon.classList.add('bi-eye');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('bi-eye');
+                toggleIcon.classList.add('bi-eye-slash');
+            }
+        }
+    </script>
+</body>
+</html>
